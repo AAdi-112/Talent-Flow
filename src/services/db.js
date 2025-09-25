@@ -184,7 +184,7 @@ db.version(1).stores({
   users: "++id,role,email,password",
   jobs: "++id,title,slug,location,stipend,experience,status,tags,order",
   candidates: "++id, name, email, jobId, stage, statusHistory, notes",
-  assessments: "++id,jobId,title,sections" // ✅ store sections, not just questions
+  assessments: "++id,jobId,title,sections" // store sections, not just questions
 });
 
 function uid() {
@@ -194,7 +194,8 @@ function uid() {
 export async function seedDatabase() {
   const count = await db.jobs.count();
   if (count === 0) {
-    console.log("🌱 Seeding database...");
+    console.log(" Seeding database...");
+
 
     // === Users ===
     await db.users.bulkAdd([
@@ -309,5 +310,23 @@ export async function seedDatabase() {
 
     await db.assessments.bulkAdd(assessments);
     console.log("✅ Assessments seeded");
+
+    // === Candidates ===
+const stages = ["applied", "screen", "tech", "offer", "hired", "rejected"];
+const candidates = Array.from({ length: 200 }).map((_, i) => {
+  const stage = stages[i % stages.length];
+  return {
+    jobId: (i % 40) + 1,
+    name: `Candidate ${i + 1}`,
+    email: `candidate${i + 1}@mail.com`,
+    stage,
+    statusHistory: [
+      { stage: "applied", date: new Date().toISOString() },
+      ...(stage !== "applied" ? [{ stage, date: new Date().toISOString() }] : []),
+    ],
+    notes: []
+  };
+});
+await db.candidates.bulkAdd(candidates);
   }
 }
