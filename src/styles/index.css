@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+body {
+  background: var(--color-background);
+  /* transition: background 0.3s ease; smooth theme switch */
+}
+
+@theme {
+  /* === Light Theme === */
+  /* Backgrounds */
+  --color-background: #f8f9fa;        /* very light gray background */
+  --color-surface: #ffffff;           /* cards, modals */
+  --color-surface-alt: #f1f3f5;       /* chips, subtle contrasts */
+  --color-border: #dee2e6;
+
+  /* Text */
+  --color-text: #212529;              /* primary text */
+  --color-text-muted: #6c757d;        /* muted text */
+
+  /* Accent colors */
+  --color-accent: #1e88e5;            /* primary blue for actions */
+  --color-accent-hover: #1976d2;
+
+  /* Active / secondary */
+  --color-active: #26c6da;            /* teal accent */
+  --color-active-hover: #00acc1;
+
+  /* Status / feedback */
+  --color-success: #28a745;           /* green for success */
+  --color-warning: #ffb74d;           /* amber for warnings */
+  --color-danger: #ef5350;            /* red for errors */
+
+  /* Decorative shapes / highlights */
+  --color-shape1: #f8cdd3;            /* pastel pink */
+  --color-shape2: #a9d3ff;            /* soft baby blue */
+  --color-shape3: #c8f7b8;            /* light green */
+  --color-shape4: #ffe08a;            /* soft yellow */
+  --color-stroke: #d0d0d0;            /* neutral stroke */
+
+  --color-dashboard-bg: #e6f7f3;   /* mint green background */
+  --color-dashboard-card: #ffffff; /* white cards on mint bg */
+}
+
+/* === Dark Theme === */
+.dark {
+  --color-background: oklch(21% 0.034 264.665); /* base dark */
+  --color-surface: #2c2f33;
+  --color-surface-alt: #3a3d42;      /* lighter contrast for chips */
+  --color-border: #495057;
+
+  --color-text: #f8f9fa;
+  --color-text-muted: #adb5bd;
+
+  --color-accent: #63b3ff;           /* brightened blue */
+  --color-accent-hover: #4a9ef0;
+
+  --color-active: #19d3da;           /* bright teal */
+  --color-active-hover: #4be4e9;
+
+  --color-success: #66bb6a;          /* green for success */
+  --color-warning: #ffca64;          /* amber for warnings */
+  --color-danger: #f0625d;           /* red for errors */
+
+  /* Decorative shapes / highlights */
+  --color-shape1: #3e5c76;
+  --color-shape2: #457b9d;
+  --color-shape3: #495057;
+  --color-shape4: #343a40;
+  --color-stroke: #eeeeee;
+}
