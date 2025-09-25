@@ -1,7 +1,7 @@
 // src/pages/Candidates/CandidateProfile.jsx
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import StatusBadge from "../../components/StatusBadge"; 
+import StatusBadge from "../../components/StatusBadge.jsx";
 import Card from "../../components/Card"; 
 
 function renderWithMentions(text) {
